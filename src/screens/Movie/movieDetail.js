@@ -81,8 +81,8 @@ const DetailScreen = ({ route, navigation }) => {
                   <Text className="text-lg font-semibold text-white">{detail.original_title}</Text>
                   <View className="flex flex-row">
                     {
-                      detail.genres != undefined ??
-                      detail.genres.map((g, index) => <Text className="text-base text-white" key={index}>{g.name}{index == detail.genres.length-1 ? '' : ','} </Text>)
+                      detail.genres != undefined ?
+                      (detail.genres.map((g, index) => <Text className="text-base text-white" key={index}>{g.name}{index == detail.genres.length-1 ? '' : ','} </Text>)) : null
                     }
                   </View>
                 </View>
@@ -99,7 +99,7 @@ const DetailScreen = ({ route, navigation }) => {
                   </View>
                   <View>
                     <Text className="text-black font-semibold">Languages</Text>
-                    <Text>{detail.spoken_languages != undefined ?? detail.spoken_languages[0].english_name}</Text>
+                    <Text>{detail.spoken_languages != undefined ? detail.spoken_languages[0].english_name : null}</Text>
                   </View>
                 </View>
                 <View className="mt-5">
